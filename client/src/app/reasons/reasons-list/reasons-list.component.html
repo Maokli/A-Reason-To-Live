@@ -1,0 +1,6 @@
+<div id="ReadReasons">
+  <p>Or browse through people’s</p>
+  <div class="reasons-container" *ngIf="reasons">
+    <app-reason-card *ngFor="let reason of reasons" [reason]="reason"></app-reason-card>
+  </div>
+</div>

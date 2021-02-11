@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200;400&display=swap');
+
+//Reset
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//global properties
+
+*{
+  font-family: 'Overpass', sans-serif;
+  transition: all .5s;
+}
+
+body{
+  background-color: #F4F5F6;
+  overflow-x: hidden;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}

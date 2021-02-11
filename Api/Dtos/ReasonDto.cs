@@ -8,10 +8,10 @@ namespace Api.Dtos
         public int Id { get; set; }
 
         [Required]
-        public string UserName { get; set; }
+        public string Color { get; set; }
 
         [Required]
-        [MaxLength(509)]
+        [MaxLength(200)]
         public string Content { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.Now;
         

@@ -1,0 +1,15 @@
+@import "../../../assets/styles/colors.scss";
+
+#ReadReasons {
+  p{
+    font-size: 1.2em;
+    margin-left: 3.5em;
+    color: $header;
+  }
+  .reasons-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4em 2em;
+    justify-content: space-evenly;
+  }
+}

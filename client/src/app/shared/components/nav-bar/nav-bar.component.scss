@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/colors.scss";
+nav{
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  color: $header;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  filter: drop-shadow(0 4px 4px #C0C0C1);
+
+  .logo {
+    display: flex;
+    margin-left: 2em;
+    align-items: center;
+    h3{
+      font-size: 1.7em;
+      font-weight:580;
+    }
+    .tree{
+      svg{
+        height: 2.5em;
+        width: 2em;
+      }
+    }
+  }
+  .links {
+    margin-right: 2em;
+    ul {
+      list-style: none;
+      display: flex;
+      li {
+        a {
+          margin: 0 1em;
+          font-weight: 200;
+          font-size: 1.7em;
+          &:hover {
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+}

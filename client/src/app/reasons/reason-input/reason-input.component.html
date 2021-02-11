@@ -1,0 +1,13 @@
+<div id="AddReason">
+  <p>Add your reason to this collection</p>
+  <form (ngSubmit)="addReason($event)">
+    <div class="reason-body">
+      <textarea name="" id="" cols="70" rows="10" 
+      placeholder="Share your motive to live here"
+      [(ngModel)]="content"
+      name="content"></textarea>
+      <p>{{content.length}}/200</p>
+    </div>
+    <button type="submit">+</button>
+  </form>
+</div>

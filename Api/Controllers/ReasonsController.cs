@@ -48,7 +48,7 @@ namespace Api.Controllers
     private ReasonDto MapReasonToDto(Reason reason){ 
         return new ReasonDto(){
             Id = reason.Id,
-            UserName = reason.UserName,
+            Color = reason.Color,
             Content = reason.Content,
             DateCreated = reason.DateCreated
         };
@@ -59,7 +59,7 @@ namespace Api.Controllers
     //Returns A Reason
     private Reason MapDtoToReason(ReasonDto reason){
         return new Reason(){
-            UserName = reason.UserName,
+            Color = reason.Color,
             Content = reason.Content,
             DateCreated = reason.DateCreated
         };
