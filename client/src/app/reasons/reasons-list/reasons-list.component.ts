@@ -10,8 +10,8 @@ import { ReasonsService } from '../reasons.service';
 })
 export class ReasonsListComponent implements OnInit {
 
-  reasons: IReason[];
-  constructor(private reasonService: ReasonsService) { }
+
+  constructor(public reasonService: ReasonsService) { }
 
   ngOnInit(): void {
     this.getReasons();
@@ -19,12 +19,15 @@ export class ReasonsListComponent implements OnInit {
 
   getReasons(){
     this.reasonService.getReasons().subscribe(response =>{
-      this.reasons = response;
-      this.reasons = this.reasons.reverse();
-      GlobalConstants.LastColor = this.reasons[0].color;
-      console.log(this.reasons)
+      console.log(response)
     },
-      error => console.log(error))
+      error => console.log(error)
+      )
   }
-
+  updateReasonsOnSubmit() {
+    const submitBtn = document.querySelector('button');
+    submitBtn.addEventListener('click', () => {
+      this.getReasons();
+    })
+  }
 }

@@ -6,7 +6,7 @@
       placeholder="Share your motive to live here"
       [(ngModel)]="content"
       name="content"></textarea>
-      <p>{{content.length}}/200</p>
+      <p [ngClass]="{'invalid': ( content.length > 200) }" >{{content.length}}/200</p>
     </div>
     <button type="submit">+</button>
   </form>

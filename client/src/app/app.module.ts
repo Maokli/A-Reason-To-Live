@@ -11,6 +11,7 @@ import { ReasonInputComponent } from './reasons/reason-input/reason-input.compon
 import { ReasonsComponent } from './reasons/reasons.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     ReasonCardComponent,
     ReasonsListComponent,
     ReasonInputComponent,
-    ReasonsComponent
+    ReasonsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ReasonsListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

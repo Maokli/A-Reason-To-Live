@@ -10,18 +10,30 @@ nav{
   filter: drop-shadow(0 4px 4px #C0C0C1);
 
   .logo {
-    display: flex;
-    margin-left: 2em;
-    align-items: center;
-    h3{
-      font-size: 1.7em;
-      font-weight:580;
-    }
-    .tree{
-      svg{
-        height: 2.5em;
-        width: 2em;
+    a {
+      display: flex;
+      margin-left: 2em;
+      align-items: center;
+      h3{
+        font-size: 1.7em;
+        font-weight:580;
       }
+      .tree{
+        svg{
+          height: 2.5em;
+          width: 2em;
+        }
+      }
+    }
+  }
+  .burger{
+    display: none;
+    height: 100%;
+    div{
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      margin: .2em;
     }
   }
   .links {
@@ -30,6 +42,7 @@ nav{
       list-style: none;
       display: flex;
       li {
+        display: inline;
         a {
           margin: 0 1em;
           font-weight: 200;
@@ -41,4 +54,94 @@ nav{
       }
     }
   }
+}
+
+/** Mobile **/
+@media screen and (max-width: 768px){
+  nav {
+    background-color: #FFFF;
+    padding: 0 .5em;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    justify-content: space-around;
+    .logo{
+      margin-right: 1em;
+      margin-bottom: .5em;
+      a {
+        margin-left: 0em;
+        h3 {
+          font-size: 1.5em;
+        }
+      }
+      img{
+        display: none;
+      }
+    }
+    .burger {
+      display: block;
+      margin-top: 1.5em;
+    }
+    .links{
+      position: absolute;
+      height: 100vh;
+      right: 0;
+      top: 9vh;
+      background-color: #FFFF;
+      flex-direction: column;
+      align-items: center;
+      width: 70%;
+      transform: translateX(100%);
+      transition: transform .5s ease-in;
+      flex-direction: column;
+      margin: 0;
+        ul {
+          flex-direction: column;
+          li {
+            opacity: 0;
+            margin-top: 1.5em;
+            text-align: center;
+            display: inline;
+            font-size: 1.5em;
+            a {
+              text-align: center !important;
+              margin: 0 auto;
+              text-align: center;
+            }
+          }
+        }
+    }
+  }
+}
+//Utility
+.nav-active {
+  transform: translateX(0%) !important;
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+//Burger Animation
+.toggle .line1{
+  transform: rotate(-45deg) translate(-3px,4px);
+}
+.toggle .line2{
+  opacity: 0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+}
+
+.selected {
+  background-color: rgb(240, 82, 82);
+  color: white;
 }

@@ -1,6 +1,9 @@
 <div id="ReadReasons">
   <p>Or browse through people’s</p>
-  <div class="reasons-container" *ngIf="reasons">
-    <app-reason-card *ngFor="let reason of reasons" [reason]="reason"></app-reason-card>
+  <div class="reasons-container" *ngIf="reasonService.reasons$ | async">
+    <app-reason-card 
+    *ngFor="let reason of (reasonService.reasons$ | async);
+     let i = index" [reason]="reason"
+     [ngClass]="{'animateIn': ( i === 0) }"></app-reason-card>
   </div>
 </div>

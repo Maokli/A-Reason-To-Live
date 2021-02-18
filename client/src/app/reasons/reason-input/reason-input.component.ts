@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Injector, OnInit } from '@angular/core';
 import { GlobalConstants } from 'src/app/models/global';
 import { IReason } from 'src/app/models/reason';
-import { PassThrough } from 'stream';
+import { ReasonCardComponent } from '../reason-card/reason-card.component';
+import { ReasonsListComponent } from '../reasons-list/reasons-list.component';
 import { ReasonsService } from '../reasons.service';
 
 @Component({
@@ -12,7 +14,9 @@ import { ReasonsService } from '../reasons.service';
 export class ReasonInputComponent implements OnInit {
   colors = ['255,183,43', '122,203,189','255,132,53','134,94,192','233,73,134'];
   content: string ="";
-  constructor(private reasonService: ReasonsService) { }
+  constructor(
+     private reasonService: ReasonsService,
+     private ReasonComponent : ReasonsListComponent) { }
 
   ngOnInit(): void {
   }
@@ -25,17 +29,30 @@ export class ReasonInputComponent implements OnInit {
       content: this.content,
       color: this.getRandomColor()
     }
-    console.log(reason);
-    this.postReason(reason)
+    if (this.content.length <= 200)
+      this.postReason(reason);
+    else
+     alert("Input should have a maximum of 200 characters")
   }
   getRandomColor() {
-    const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+    let color = this.colors[Math.floor(Math.random() * this.colors.length)];
     if(color === this.getLastColor())
-      this.getRandomColor();
+      color = this.getRandomColor();
+    console.log(this.getLastColor());
+    console.log(color);
     return color;
   }
   postReason(reason: IReason) {
-    this.reasonService.addReason(reason).subscribe(response => console.log(response)
+    this.reasonService.addReason(reason).subscribe(response => 
+      {
+        console.log(response);
+        this.ReasonComponent.getReasons();
+        this.scrollToReasons();
+      }
       , error => console.log(error))
+  }
+  scrollToReasons() {
+    const reasons = document.querySelector('#ReadReasons p');
+    reasons.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 }

@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/colors.scss";
+
+p {
+  text-align: center;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: $small-paragraph;
+  a {
+    font-weight: bold;
+    color: $header
+  }
+}
