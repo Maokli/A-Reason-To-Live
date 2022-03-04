@@ -22,7 +22,7 @@ namespace Api.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Reason>>> GetReasons(){
         var reasonsFromDb = _context.Reasons;
-        var orderedReasons = reasonsFromDb.OrderByDescending(r => r.DateCreated); //Order by date Created
+        var orderedReasons = reasonsFromDb.OrderBy(r => r.DateCreated); //Order by date Created
 
         var reasons = await orderedReasons.ToListAsync(); //Execute the query
 
