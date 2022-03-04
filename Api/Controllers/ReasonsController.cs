@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Api.Data;
 using Api.Dtos;
@@ -20,7 +21,11 @@ namespace Api.Controllers
     //Returns a list of ReasonDto Objects
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Reason>>> GetReasons(){
-        var reasons = await _context.Reasons.ToListAsync();
+        var reasonsFromDb = _context.Reasons;
+        var orderedReasons = reasonsFromDb.OrderByDescending(r => r.DateCreated); //Order by date Created
+
+        var reasons = await orderedReasons.ToListAsync(); //Execute the query
+
         var reasonsToReturn = new List<ReasonDto>(); //Initialize Reasons to return list
 
         //Map Reasons to Dtos
